@@ -39,6 +39,33 @@ export function SloganSection() {
         </AnimateEnter>
         <GridBackground />
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-zinc-800 bg-zinc-950/80 py-8 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <div className="flex items-center justify-center gap-2 text-zinc-400">
+            <span className="text-2xl">🐐</span>
+            <span className="font-semibold text-white">Beaucoup trop goatesque</span>
+            <span className="text-zinc-600">•</span>
+            <span>Toulouse</span>
+          </div>
+          <p className="text-sm text-zinc-500">
+            Nuit de l'Info 2025 — 4 & 5 Décembre
+          </p>
+          <div className="flex items-center justify-center gap-2 text-xs text-zinc-600">
+            <span>🔓</span>
+            <span>Projet sous licence libre</span>
+            <a 
+              href="https://github.com/Sneyko/village-numerique-resistant" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-emerald-500 hover:text-emerald-400 transition-colors"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 }
