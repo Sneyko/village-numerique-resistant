@@ -1,5 +1,6 @@
 // Phase de diagnostic : choix de l'axe prioritaire NIRD
 import { motion } from "framer-motion";
+import { Users, Shield, Leaf, ClipboardList } from "lucide-react";
 import { PriorityAxis } from "../../game/types";
 
 interface DiagnosticPhaseProps {
@@ -9,7 +10,7 @@ interface DiagnosticPhaseProps {
 interface AxisConfig {
   key: PriorityAxis;
   label: string;
-  icon: string;
+  icon: React.ReactNode;
   color: string;
   description: string;
   benefits: string[];
@@ -19,7 +20,7 @@ const NIRD_AXES: AxisConfig[] = [
   {
     key: "inclusion",
     label: "Inclusion",
-    icon: "👥",
+    icon: <Users className="w-10 h-10" />,
     color: "#10b981",
     description: "Un numérique accessible à tous",
     benefits: [
@@ -31,7 +32,7 @@ const NIRD_AXES: AxisConfig[] = [
   {
     key: "responsabilite",
     label: "Responsabilité",
-    icon: "🛡️",
+    icon: <Shield className="w-10 h-10" />,
     color: "#8b5cf6",
     description: "Protection des données et éthique",
     benefits: [
@@ -43,7 +44,7 @@ const NIRD_AXES: AxisConfig[] = [
   {
     key: "durabilite",
     label: "Durabilité",
-    icon: "🌱",
+    icon: <Leaf className="w-10 h-10" />,
     color: "#06b6d4",
     description: "Sobriété et réemploi",
     benefits: [
@@ -62,8 +63,8 @@ export function DiagnosticPhase({ onSelect }: DiagnosticPhaseProps) {
       className="max-w-4xl mx-auto"
     >
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-white mb-4">
-          📋 Phase de diagnostic
+        <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+          <ClipboardList className="w-8 h-8 text-purple-400" /> Phase de diagnostic
         </h2>
         <p className="text-zinc-400 max-w-xl mx-auto">
           Avant de commencer votre mandat de 4 ans, identifiez l'axe prioritaire NIRD
@@ -96,7 +97,7 @@ export function DiagnosticPhase({ onSelect }: DiagnosticPhaseProps) {
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">{axis.icon}</span>
+                <span style={{ color: axis.color }}>{axis.icon}</span>
                 <div>
                   <h3
                     className="text-xl font-bold"
@@ -114,7 +115,7 @@ export function DiagnosticPhase({ onSelect }: DiagnosticPhaseProps) {
                     key={j}
                     className="flex items-center gap-2 text-sm text-zinc-300"
                   >
-                    <span className="text-emerald-500">✓</span>
+                    <span className="text-emerald-500 text-xs">●</span>
                     {benefit}
                   </li>
                 ))}

@@ -1,7 +1,9 @@
 // Résumé de fin d'année
 import { motion } from "framer-motion";
+import { BarChart3, Lightbulb } from "lucide-react";
 import { IndicatorKey, INDICATORS_CONFIG, HistoryEntry } from "../../game/types";
 import { IndicatorsPanel } from "./IndicatorsPanel";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface YearSummaryProps {
   year: number;
@@ -43,11 +45,11 @@ export function YearSummary({
         className="text-center mb-8"
       >
         <motion.span
-          className="text-6xl block mb-4"
+          className="block mb-4"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 0.5 }}
         >
-          📊
+          <BarChart3 className="w-16 h-16 text-purple-400 mx-auto" />
         </motion.span>
         <h2 className="text-3xl font-bold text-white mb-2">
           Bilan de l'année {year}
@@ -104,13 +106,13 @@ export function YearSummary({
                     return (
                       <span
                         key={key}
-                        className={`text-xs px-1.5 py-0.5 rounded ${
+                        className={`text-xs px-1.5 py-0.5 rounded flex items-center gap-1 ${
                           isPositive
                             ? "bg-emerald-500/20 text-emerald-400"
                             : "bg-red-500/20 text-red-400"
                         }`}
                       >
-                        {config.icon} {value > 0 ? "+" : ""}{value}
+                        <GameIcon name={config.icon as GameIconName} size={10} /> {value > 0 ? "+" : ""}{value}
                       </span>
                     );
                   })}
@@ -128,8 +130,8 @@ export function YearSummary({
         transition={{ delay: 0.5 }}
         className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 mb-8"
       >
-        <h3 className="text-lg font-semibold text-white mb-3">
-          💡 Analyse NIRD
+        <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+          <Lightbulb className="w-5 h-5 text-amber-400" /> Analyse NIRD
         </h3>
         <p className="text-zinc-300 text-sm leading-relaxed">
           {getYearAnalysis(indicators, year)}

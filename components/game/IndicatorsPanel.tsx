@@ -1,6 +1,7 @@
 // Panneau des indicateurs
 import { motion } from "framer-motion";
 import { IndicatorKey, INDICATORS_CONFIG } from "../../game/types";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface IndicatorsPanelProps {
   indicators: Record<IndicatorKey, number>;
@@ -22,7 +23,9 @@ export function IndicatorsPanel({ indicators, compact, showDelta }: IndicatorsPa
               className="flex items-center gap-2"
               title={config.description}
             >
-              <span className="text-sm">{config.icon}</span>
+              <span style={{ color: config.color }}>
+                <GameIcon name={config.icon as GameIconName} size={14} className="opacity-70" />
+              </span>
               <div className="flex items-center gap-1">
                 <div className="w-16 h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                   <motion.div
@@ -68,7 +71,9 @@ export function IndicatorsPanel({ indicators, compact, showDelta }: IndicatorsPa
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <span className="text-xl">{config.icon}</span>
+                <span style={{ color: config.color }}>
+                  <GameIcon name={config.icon as GameIconName} size={20} />
+                </span>
                 <span className="text-sm font-medium text-zinc-300">
                   {config.label}
                 </span>

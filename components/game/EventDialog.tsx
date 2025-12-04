@@ -1,6 +1,8 @@
 // Dialogue d'événement aléatoire
 import { motion } from "framer-motion";
+import { Zap } from "lucide-react";
 import { GameEvent, EventChoice, INDICATORS_CONFIG } from "../../game/types";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface EventDialogProps {
   event: GameEvent;
@@ -32,11 +34,10 @@ export function EventDialog({ event, onChoice }: EventDialogProps) {
           
           <div className="relative flex items-center gap-3">
             <motion.span
-              className="text-4xl"
               animate={{ rotate: [0, -10, 10, 0] }}
               transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
             >
-              ⚡
+              <Zap className="w-10 h-10 text-amber-400" />
             </motion.span>
             <div>
               <p className="text-xs text-amber-400 font-medium uppercase tracking-wider mb-1">
@@ -73,8 +74,8 @@ export function EventDialog({ event, onChoice }: EventDialogProps) {
                            hover:border-amber-500/50 hover:bg-zinc-800 group"
               >
                 <div className="flex items-start gap-3">
-                  <span className="text-xl opacity-50 group-hover:opacity-100 transition-opacity">
-                    {index === 0 ? "🅰️" : index === 1 ? "🅱️" : "🅲️"}
+                  <span className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm opacity-50 group-hover:opacity-100 transition-opacity shrink-0">
+                    {String.fromCharCode(65 + index)}
                   </span>
                   <div className="flex-1">
                     <p className="text-white font-medium mb-2">{choice.label}</p>
@@ -91,13 +92,13 @@ export function EventDialog({ event, onChoice }: EventDialogProps) {
                         return (
                           <span
                             key={key}
-                            className={`text-xs px-2 py-0.5 rounded ${
+                            className={`text-xs px-2 py-0.5 rounded flex items-center gap-1 ${
                               isPositive
                                 ? "bg-emerald-500/20 text-emerald-400"
                                 : "bg-red-500/20 text-red-400"
                             }`}
                           >
-                            {config.icon} {value > 0 ? "+" : ""}{value}
+                            <GameIcon name={config.icon as GameIconName} size={12} /> {value > 0 ? "+" : ""}{value}
                           </span>
                         );
                       })}

@@ -1,6 +1,7 @@
 // Dialogue de quiz pour les cartes d'action
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Brain, PartyPopper, Lightbulb, Check, X } from "lucide-react";
 import { ActionCard, QuizAnswer } from "../../game/types";
 
 interface QuizDialogProps {
@@ -43,7 +44,7 @@ export function QuizDialog({ card, onAnswer, onSkip }: QuizDialogProps) {
         {/* Header */}
         <div className="p-6 border-b border-zinc-800 bg-purple-500/10">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">🧠</span>
+            <Brain className="w-8 h-8 text-purple-400" />
             <div>
               <h3 className="text-xl font-bold text-white">Quiz Bonus</h3>
               <p className="text-sm text-zinc-400">
@@ -93,8 +94,8 @@ export function QuizDialog({ card, onAnswer, onSkip }: QuizDialogProps) {
                           : "border-zinc-600"
                       }`}
                     >
-                      {showCorrect && <span className="text-white text-sm">✓</span>}
-                      {showIncorrect && <span className="text-white text-sm">✗</span>}
+                      {showCorrect && <Check className="w-3 h-3 text-white" />}
+                      {showIncorrect && <X className="w-3 h-3 text-white" />}
                     </div>
                     <span className="text-white">{answer.label}</span>
                   </div>
@@ -116,9 +117,11 @@ export function QuizDialog({ card, onAnswer, onSkip }: QuizDialogProps) {
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">
-                    {selectedAnswer.isCorrect ? "🎉" : "💡"}
-                  </span>
+                  {selectedAnswer.isCorrect ? (
+                    <PartyPopper className="w-6 h-6 text-emerald-400 shrink-0" />
+                  ) : (
+                    <Lightbulb className="w-6 h-6 text-amber-400 shrink-0" />
+                  )}
                   <div>
                     <p
                       className={`font-medium mb-1 ${

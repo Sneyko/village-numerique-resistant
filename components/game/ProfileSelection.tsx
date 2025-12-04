@@ -1,7 +1,8 @@
 // Sélection du profil joueur
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Castle, Gamepad2 } from "lucide-react";
 import { PlayerProfile, PROFILES_CONFIG } from "../../game/types";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface ProfileSelectionProps {
   onSelect: (profile: PlayerProfile) => void;
@@ -32,9 +33,9 @@ export function ProfileSelection({ onSelect, onClose }: ProfileSelectionProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", delay: 0.1 }}
-          className="text-6xl mb-4"
+          className="text-6xl mb-4 flex justify-center"
         >
-          🏰
+          <Castle className="w-16 h-16 text-purple-400" />
         </motion.div>
         <h1 className="text-3xl md:text-4xl font-black text-white mb-4">
           Le Village Numérique{" "}
@@ -62,7 +63,9 @@ export function ProfileSelection({ onSelect, onClose }: ProfileSelectionProps) {
                        text-left transition-all duration-300
                        focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
           >
-            <div className="text-4xl mb-3">{profile.icon}</div>
+            <div className="text-4xl mb-3">
+              <GameIcon name={profile.icon as GameIconName} size={40} className="text-zinc-300 group-hover:text-emerald-400 transition-colors" />
+            </div>
             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
               {profile.label}
             </h3>
@@ -76,9 +79,9 @@ export function ProfileSelection({ onSelect, onClose }: ProfileSelectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-12 text-zinc-600 text-sm text-center"
+        className="mt-12 text-zinc-600 text-sm text-center flex items-center justify-center gap-2"
       >
-        🎮 Nuit de l'Info 2025 • Démarche NIRD
+        <Gamepad2 className="w-4 h-4" /> Nuit de l'Info 2025 • Démarche NIRD
       </motion.p>
     </motion.div>
   );

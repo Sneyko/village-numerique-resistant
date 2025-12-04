@@ -1,6 +1,7 @@
 // Écran de fin de partie avec Plan NIRD personnalisé
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Trophy, ArrowRightLeft, Link, BarChart3, ClipboardList, Copy, Check, RefreshCw, Globe, Gamepad2 } from "lucide-react";
 import { 
   GameState, 
   EndingCategory, 
@@ -9,6 +10,7 @@ import {
   PROFILES_CONFIG
 } from "../../game/types";
 import { IndicatorsPanel } from "./IndicatorsPanel";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface EndScreenProps {
   state: GameState;
@@ -42,11 +44,11 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
     }
   };
 
-  const getCategoryEmoji = (category: EndingCategory) => {
+  const getCategoryIcon = (category: EndingCategory) => {
     switch (category) {
-      case "resistant": return "🏆";
-      case "transition": return "🔄";
-      case "captif": return "⛓️";
+      case "resistant": return <Trophy className="w-16 h-16 text-emerald-400" />;
+      case "transition": return <ArrowRightLeft className="w-16 h-16 text-amber-400" />;
+      case "captif": return <Link className="w-16 h-16 text-red-400" />;
     }
   };
 
@@ -64,14 +66,14 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         className="text-center mb-10"
       >
         <motion.span
-          className="text-7xl block mb-4"
+          className="block mb-4"
           animate={{ 
             rotate: ending.category === "resistant" ? [0, -5, 5, 0] : 0,
             scale: ending.category === "resistant" ? [1, 1.1, 1] : 1
           }}
           transition={{ duration: 1, repeat: ending.category === "resistant" ? Infinity : 0, repeatDelay: 2 }}
         >
-          {getCategoryEmoji(ending.category)}
+          {getCategoryIcon(ending.category)}
         </motion.span>
         
         <h1 className={`text-4xl font-bold mb-3 ${getCategoryColor(ending.category)}`}>
@@ -83,8 +85,8 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         </p>
 
         {profile && (
-          <p className="text-sm text-zinc-500 mt-4">
-            Profil : {profile.icon} {profile.label}
+          <p className="text-sm text-zinc-500 mt-4 flex items-center justify-center gap-2">
+            Profil : <GameIcon name={profile.icon as GameIconName} size={16} /> {profile.label}
           </p>
         )}
       </motion.div>
@@ -96,8 +98,8 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         transition={{ delay: 0.3 }}
         className="mb-8"
       >
-        <h3 className="text-lg font-semibold text-zinc-300 mb-4 text-center">
-          📊 Bilan final après 4 ans
+        <h3 className="text-lg font-semibold text-zinc-300 mb-4 text-center flex items-center justify-center gap-2">
+          <BarChart3 className="w-5 h-5 text-purple-400" /> Bilan final après 4 ans
         </h3>
         <IndicatorsPanel indicators={state.indicators} />
       </motion.div>
@@ -133,18 +135,26 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         className="mb-8"
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-zinc-300">
-            📋 Votre Plan NIRD personnalisé
+          <h3 className="text-lg font-semibold text-zinc-300 flex items-center gap-2">
+            <ClipboardList className="w-5 h-5 text-purple-400" /> Votre Plan NIRD personnalisé
           </h3>
           <button
             onClick={handleCopy}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
               copied
                 ? "bg-emerald-600 text-white"
                 : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
             }`}
           >
-            {copied ? "✓ Copié !" : "📋 Copier"}
+            {copied ? (
+              <>
+                <Check className="w-4 h-4" /> Copié !
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4" /> Copier
+              </>
+            )}
           </button>
         </div>
         
@@ -165,18 +175,18 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         <button
           onClick={onRestart}
           className="px-8 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 
-                     text-white font-semibold transition-colors"
+                     text-white font-semibold transition-colors flex items-center gap-2"
         >
-          🔄 Rejouer
+          <RefreshCw className="w-5 h-5" /> Rejouer
         </button>
         <a
           href="https://nird.forge.apps.education.fr/"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 
-                     text-white font-semibold transition-colors text-center"
+                     text-white font-semibold transition-colors text-center flex items-center gap-2"
         >
-          🌐 Découvrir NIRD
+          <Globe className="w-5 h-5" /> Découvrir NIRD
         </a>
       </motion.div>
 
@@ -185,9 +195,9 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="text-center text-xs text-zinc-600 mt-12"
+        className="text-center text-xs text-zinc-600 mt-12 flex items-center justify-center gap-2"
       >
-        🎮 Village Numérique Résistant - Nuit de l'Info 2025
+        <Gamepad2 className="w-4 h-4" /> Village Numérique Résistant - Nuit de l'Info 2025
         <br />
         Équipe "Beaucoup trop goatesque" • Démarche NIRD
       </motion.p>
@@ -204,32 +214,32 @@ function generatePlanNIRD(state: GameState, ending: { category: EndingCategory }
     "║     Village Numérique Résistant - Nuit de l'Info 2025   ║",
     "╚══════════════════════════════════════════════════════════╝",
     "",
-    `👤 Profil : ${profile?.label || "Non défini"}`,
-    `📊 Résultat : ${ending.category.toUpperCase()}`,
+    `[PROFIL] ${profile?.label || "Non défini"}`,
+    `[RESULTAT] ${ending.category.toUpperCase()}`,
     "",
     "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    "📈 INDICATEURS FINAUX",
+    "▸ INDICATEURS FINAUX",
     "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
   ];
 
   INDICATORS_CONFIG.forEach(config => {
     const value = state.indicators[config.key];
     const bar = "█".repeat(Math.floor(value / 10)) + "░".repeat(10 - Math.floor(value / 10));
-    lines.push(`${config.icon} ${config.label.padEnd(15)} [${bar}] ${value}%`);
+    lines.push(`  ${config.label.padEnd(20)} [${bar}] ${value}%`);
   });
 
   lines.push("");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  lines.push("✅ ACTIONS RÉALISÉES");
+  lines.push("▸ ACTIONS RÉALISÉES");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
   state.playedCards.forEach((card, i) => {
-    lines.push(`${i + 1}. ${card.title}`);
+    lines.push(`  ${i + 1}. ${card.title}`);
   });
 
   lines.push("");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  lines.push("🎯 RECOMMANDATIONS NIRD");
+  lines.push("▸ RECOMMANDATIONS NIRD");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
   // Recommandations basées sur les indicateurs faibles
@@ -245,12 +255,12 @@ function generatePlanNIRD(state: GameState, ending: { category: EndingCategory }
       lines.push(`  • ${config.label} : ${getRecommendation(config.key)}`);
     });
   } else {
-    lines.push("🏆 Excellent travail ! Continuez sur cette lancée.");
+    lines.push("★ Excellent travail ! Continuez sur cette lancée.");
   }
 
   lines.push("");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  lines.push("🌐 RESSOURCES");
+  lines.push("▸ RESSOURCES");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   lines.push("  • Site NIRD : https://nird.forge.apps.education.fr/");
   lines.push("  • Framasoft : https://framasoft.org");

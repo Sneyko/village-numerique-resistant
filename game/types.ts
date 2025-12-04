@@ -201,28 +201,28 @@ export const INDICATORS_CONFIG: IndicatorConfig[] = [
   {
     key: "inclusion",
     label: "Inclusion",
-    icon: "👥",
+    icon: "inclusion",
     color: "#8b5cf6", // violet
     description: "Accès pour tous, lutte contre la fracture numérique",
   },
   {
     key: "responsabilite",
     label: "Responsabilité",
-    icon: "🛡️",
+    icon: "responsabilite",
     color: "#3b82f6", // bleu
     description: "Éthique, protection des données, logiciels libres",
   },
   {
     key: "durabilite",
     label: "Durabilité",
-    icon: "🌱",
+    icon: "durabilite",
     color: "#22c55e", // vert
     description: "Sobriété, réemploi, réparation",
   },
   {
     key: "dependance",
     label: "Dépendance Big Tech",
-    icon: "⛓️",
+    icon: "dependance",
     color: "#ef4444", // rouge
     description: "Niveau de dépendance aux géants du numérique",
     isNegative: true,
@@ -230,14 +230,14 @@ export const INDICATORS_CONFIG: IndicatorConfig[] = [
   {
     key: "budget",
     label: "Budget",
-    icon: "💰",
+    icon: "budget",
     color: "#f59e0b", // orange
     description: "Ressources financières disponibles",
   },
   {
     key: "energie",
     label: "Énergie d'équipe",
-    icon: "⚡",
+    icon: "energie",
     color: "#06b6d4", // cyan
     description: "Motivation et disponibilité des équipes",
   },
@@ -247,28 +247,28 @@ export const ZONES_CONFIG: ZoneConfig[] = [
   {
     key: "infra",
     label: "Infrastructure",
-    icon: "🖥️",
+    icon: "infra",
     description: "Parc machines, salle info, réseaux",
     color: "#6366f1",
   },
   {
     key: "pedago",
     label: "Pédagogie",
-    icon: "📚",
+    icon: "pedago",
     description: "CDI, ressources éducatives, cours",
     color: "#8b5cf6",
   },
   {
     key: "vie",
     label: "Vie scolaire",
-    icon: "🎒",
+    icon: "vie",
     description: "Élèves, clubs, sensibilisation",
     color: "#ec4899",
   },
   {
     key: "gouv",
     label: "Gouvernance",
-    icon: "🏛️",
+    icon: "gouv",
     description: "Collectivité, projet d'établissement",
     color: "#14b8a6",
   },
@@ -278,31 +278,31 @@ export const PROFILES_CONFIG: ProfileConfig[] = [
   {
     key: "eleve",
     label: "Élève / Éco-délégué·e",
-    icon: "🎓",
+    icon: "eleve",
     description: "Tu veux transformer ton lycée de l'intérieur",
   },
   {
     key: "enseignant",
     label: "Enseignant·e / CPE",
-    icon: "👨‍🏫",
+    icon: "enseignant",
     description: "Tu accompagnes les élèves vers un numérique responsable",
   },
   {
     key: "famille",
     label: "Parent / Famille",
-    icon: "👨‍👩‍👧",
+    icon: "famille",
     description: "Tu veux un numérique sain pour tes enfants",
   },
   {
     key: "collectivite",
     label: "Élu·e / Collectivité",
-    icon: "🏛️",
+    icon: "collectivite",
     description: "Tu décides des moyens et des orientations",
   },
   {
     key: "autre",
     label: "Autre",
-    icon: "🌟",
+    icon: "autre",
     description: "Citoyen·ne engagé·e pour un numérique éthique",
   },
 ];

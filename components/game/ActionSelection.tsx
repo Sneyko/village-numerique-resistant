@@ -1,7 +1,9 @@
 // Sélection des actions par année
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, Brain, Check } from "lucide-react";
 import { ActionCard, ZoneKey, ZONES_CONFIG, INDICATORS_CONFIG } from "../../game/types";
+import { GameIcon, GameIconName } from "./GameIcon";
 
 interface ActionSelectionProps {
   year: number;
@@ -44,8 +46,8 @@ export function ActionSelection({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-white">
-            📅 Année {year} — Choix des actions
+          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+            <Calendar className="w-6 h-6 text-purple-400" /> Année {year} — Choix des actions
           </h2>
           <p className="text-zinc-400">
             Sélectionnez jusqu'à {maxCards} actions pour cette année
@@ -139,7 +141,7 @@ export function ActionSelection({
                 {/* Selected check */}
                 {selected && (
                   <div className="absolute top-3 left-3 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center">
-                    <span className="text-white text-sm">✓</span>
+                    <Check className="w-4 h-4 text-white" />
                   </div>
                 )}
 
@@ -161,13 +163,13 @@ export function ActionSelection({
                     return (
                       <span
                         key={key}
-                        className={`text-xs px-2 py-0.5 rounded ${
+                        className={`text-xs px-2 py-0.5 rounded flex items-center gap-1 ${
                           isPositive
                             ? "bg-emerald-500/20 text-emerald-400"
                             : "bg-red-500/20 text-red-400"
                         }`}
                       >
-                        {config.icon} {value > 0 ? "+" : ""}{value}
+                        <GameIcon name={config.icon as GameIconName} size={12} /> {value > 0 ? "+" : ""}{value}
                       </span>
                     );
                   })}
@@ -182,7 +184,7 @@ export function ActionSelection({
                     }}
                     className="text-xs text-purple-400 hover:text-purple-300 flex items-center gap-1"
                   >
-                    🧠 Quiz bonus disponible
+                    <Brain className="w-3 h-3" /> Quiz bonus disponible
                   </button>
                 )}
               </motion.div>
