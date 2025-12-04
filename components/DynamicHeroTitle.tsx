@@ -245,17 +245,40 @@ function Subtitle() {
                  text-center max-w-2xl px-4 font-medium"
     >
       L'École ne se laissera pas{" "}
-      <span className="relative inline-block">
-        <span className="text-red-400 line-through opacity-60">obsolescere</span>
+      <span className="relative inline-block group cursor-pointer">
+        {/* Texte principal avec effet glow */}
         <motion.span
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-          className="absolute -right-2 top-0 translate-x-full text-emerald-400 font-bold"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
+          className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-300 to-cyan-400 
+                     font-black tracking-wide
+                     drop-shadow-[0_0_20px_rgba(16,185,129,0.6)]
+                     group-hover:drop-shadow-[0_0_35px_rgba(16,185,129,0.9)]
+                     transition-all duration-300"
         >
-          {" "}résister.
+          résister
         </motion.span>
+        
+        {/* Underline animé */}
+        <motion.span
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.6, duration: 0.4, ease: "easeOut" }}
+          className="absolute -bottom-1 left-0 right-0 h-[3px] origin-left
+                     bg-gradient-to-r from-emerald-500 via-green-400 to-cyan-500
+                     group-hover:h-[4px] group-hover:shadow-[0_0_15px_rgba(16,185,129,0.8)]
+                     transition-all duration-300"
+        />
+        
+        {/* Particules au survol */}
+        <span className="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <span className="absolute top-0 left-1/4 w-1 h-1 bg-emerald-400 rounded-full animate-ping" />
+          <span className="absolute bottom-0 right-1/4 w-1 h-1 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: "0.2s" }} />
+          <span className="absolute top-1/2 left-0 w-1 h-1 bg-green-400 rounded-full animate-ping" style={{ animationDelay: "0.4s" }} />
+        </span>
       </span>
+      <span className="text-zinc-400">.</span>
     </motion.p>
   );
 }
