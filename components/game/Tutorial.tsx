@@ -5,6 +5,17 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 import { PlayerProfile } from "../../game/types";
 import { TUTORIAL_SLIDES, PROFILE_TEXTS } from "../../game/data/texts";
 
+// Fonction pour parser le markdown simple (gras uniquement)
+function parseMarkdown(text: string): React.ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>;
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
 interface TutorialProps {
   profile: PlayerProfile;
   onStart: () => void;
@@ -69,9 +80,11 @@ export function Tutorial({ profile, onStart }: TutorialProps) {
               {slide.title}
             </h2>
             <div className="text-zinc-300 leading-relaxed whitespace-pre-line text-left bg-zinc-900/50 rounded-xl p-6 border border-zinc-800">
-              {slide.content
-                .replace("{establishment}", profileTexts.establishment)
-                .replace("{youAre}", profileTexts.youAre)}
+              {parseMarkdown(
+                slide.content
+                  .replace("{establishment}", profileTexts.establishment)
+                  .replace("{youAre}", profileTexts.youAre)
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
