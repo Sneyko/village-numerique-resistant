@@ -1,8 +1,15 @@
 {
-  "name": "village-numérique-résistant",
-  "private": true,
-  "version": "0.0.0",
+  "name": "village-numerique-resistant",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "Le Village Numérique Résistant - Démarche NIRD : Numérique Inclusif, Responsable et Durable",
+  "author": "beaucoup-trop-goatesque",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sneyko/village-numerique-resistant"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
