@@ -1,12 +1,10 @@
 import React from 'react';
 import { HeroContent } from './components/HeroContent';
 import { ComponentsSection } from './components/ComponentsSection';
+import ArsenalSection from './components/ArsenalSection';
 import { FeedbacksSection } from './components/FeedbacksSection';
 import { SloganSection } from './components/SloganSection';
-
-// Note: This App.tsx serves as a layout preview. 
-// The individual components assume the existence of the specific Next.js template structure 
-// (AnimateEnter, GridBackground, etc.) referenced in the user's source imports.
+import ChatBruti from './components/ChatBruti';
 
 export default function App() {
   return (
@@ -14,9 +12,18 @@ export default function App() {
       <div className="container mx-auto px-4 py-10 space-y-32">
         <HeroContent />
         <ComponentsSection />
+      </div>
+      
+      {/* Arsenal Section - Full width */}
+      <ArsenalSection />
+      
+      <div className="container mx-auto px-4 py-10 space-y-32">
         <FeedbacksSection />
         <SloganSection />
       </div>
+
+      {/* Goli-Chat - Le méchant chatbot de l'Empire */}
+      <ChatBruti />
     </main>
   );
 }
