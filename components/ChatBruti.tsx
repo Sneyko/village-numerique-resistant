@@ -148,6 +148,14 @@ export default function ChatBruti() {
 
   return (
     <>
+      {/* Style pour l'aura animée */}
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+      
       {/* ============================================== */}
       {/* BOUTON FLOTTANT */}
       {/* ============================================== */}
@@ -196,16 +204,15 @@ export default function ChatBruti() {
           >
             {/* ====== HEADER ====== */}
             <div className="relative px-4 py-3 bg-gradient-to-r from-blue-900/50 to-zinc-900/50 border-b border-blue-500/20">
-              {/* Glitch lines effect */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/3 left-0 right-0 h-px bg-blue-500/30 animate-pulse" />
-                <div className="absolute top-2/3 left-0 right-0 h-px bg-orange-500/20" />
-              </div>
-
               <div className="flex items-center justify-between relative">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg shadow-blue-500/30">
-                    <img src="/img/goli-logo.png" alt="Goli-Chat" className="w-full h-full object-cover" />
+                  {/* Avatar avec aura chroma animée */}
+                  <div className="relative">
+                    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-60 blur-md animate-pulse" />
+                    <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-40 blur-sm" style={{ animation: 'spin 4s linear infinite' }} />
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-blue-500/50">
+                      <img src="/img/goli-logo.png" alt="Goli-Chat" className="w-full h-full object-cover" />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-sm flex items-center gap-2">
