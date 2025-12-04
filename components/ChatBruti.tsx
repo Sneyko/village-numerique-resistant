@@ -442,7 +442,7 @@ export default function ChatBruti() {
                   <div>
                     <h3 className="text-white font-bold text-sm flex items-center gap-2">
                       Goli-Chat 
-                      <span className="text-[10px] font-normal text-zinc-400">v0.1 (Bêta)</span>
+                      <span className="text-[10px] font-normal text-zinc-400 italic">← clique ma tête 👀</span>
                     </h3>
                     <div className="flex items-center gap-1.5 text-[10px] text-zinc-400">
                       <Wifi className="w-3 h-3 text-orange-500 animate-pulse" />
