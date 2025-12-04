@@ -170,7 +170,7 @@ export function EndScreen({ state, ending, onRestart }: EndScreenProps) {
           🔄 Rejouer
         </button>
         <a
-          href="https://nird.fr"
+          href="https://nird.forge.apps.education.fr/"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 
@@ -252,7 +252,7 @@ function generatePlanNIRD(state: GameState, ending: { category: EndingCategory }
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   lines.push("🌐 RESSOURCES");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  lines.push("  • Site NIRD : https://nird.fr");
+  lines.push("  • Site NIRD : https://nird.forge.apps.education.fr/");
   lines.push("  • Framasoft : https://framasoft.org");
   lines.push("  • April : https://april.org");
   lines.push("");
