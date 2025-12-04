@@ -14,7 +14,7 @@ export function HeroContent() {
             <img 
               src="/img/logo-team.png" 
               alt="Village Numérique Résistant" 
-              className="h-14 sm:h-16 md:h-20 w-auto mx-auto drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all duration-300"
+              className="h-20 sm:h-24 md:h-28 w-auto mx-auto drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all duration-300"
             />
           </AnimateEnter>
           <AnimateEnter delay={0.15} duration={2} className="w-fit mx-auto">
