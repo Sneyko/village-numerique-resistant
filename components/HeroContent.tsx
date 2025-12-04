@@ -3,6 +3,7 @@ import { AnimateEnter } from "../AnimateEnter";
 import { GridBackground } from "../GridBackground";
 import { Techs } from "./Techs";
 import { AnimatedBadge } from "./AnimatedBadge";
+import { DynamicHeroTitle } from "./DynamicHeroTitle";
 
 export function HeroContent() {
   return (
@@ -19,19 +20,12 @@ export function HeroContent() {
           <AnimateEnter delay={0.15} duration={2} className="w-fit mx-auto">
             <AnimatedBadge />
           </AnimateEnter>
-          <AnimateEnter delay={0.3} duration={2}>
-            <h1 className="mx-auto max-w-4xl max-sm:leading-tight max-sm:max-w-sm font-black text-5xl sm:text-6xl md:text-7xl tracking-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-                DAVID vs GOLIATH
-              </span>
-              <br />
-              <span className="text-white">2.0</span>
-              <span className="ml-2 text-3xl sm:text-4xl">⚔️</span>
-            </h1>
-          </AnimateEnter>
+          
+          {/* Nouveau titre animé dynamique */}
+          <DynamicHeroTitle />
         </div>
 
-        <AnimateEnter delay={0.5} duration={2} className="mb-6 sm:mb-8">
+        <AnimateEnter delay={3.8} duration={1.5} className="mb-6 sm:mb-8">
           <p className="mx-auto max-w-2xl text-[17px] sm:text-xl text-gray-300 leading-relaxed">
             <span className="text-purple-400 font-semibold">L'Empire des Big Tech</span> veut jeter nos PC. 
             Nous, <span className="text-pink-400 font-semibold">irréductibles du lycée</span>, 
