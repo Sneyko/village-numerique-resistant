@@ -10,7 +10,7 @@ export function AnimatedBadge() {
       </span>
       <span className="text-green-300 inline-flex items-center gap-1.5"><Moon className="w-4 h-4" /> Nuit de l'Info 2025</span>
       <span className="text-gray-500">•</span>
-      <span className="text-gray-400">4 & 5 Décembre</span>
+      <span className="text-gray-400">Équipe : Beaucoup trop goatesque</span>
     </div>
   );
 }
