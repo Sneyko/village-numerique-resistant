@@ -1,13 +1,18 @@
+import { useState } from "react";
 import { NirdButton } from "./NirdButton";
 import { AnimateEnter } from "../AnimateEnter";
 import { GridBackground } from "../GridBackground";
 import { Techs } from "./Techs";
 import { AnimatedBadge } from "./AnimatedBadge";
 import { DynamicHeroTitle } from "./DynamicHeroTitle";
+import { JoinModal } from "./JoinModal";
+import { Terminal, Swords, Gamepad2, Shield } from "lucide-react";
 
 export function HeroContent() {
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+
   return (
-    <div className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center relative">
+    <div id="top" className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center relative">
       <div>
         <div className="mb-5 sm:mb-8 space-y-4 sm:space-y-6">
           <AnimateEnter delay={0.05} duration={2} className="w-fit mx-auto">
@@ -29,9 +34,9 @@ export function HeroContent() {
           <p className="mx-auto max-w-2xl text-[17px] sm:text-xl text-gray-300 leading-relaxed">
             <span className="text-purple-400 font-semibold">L'Empire des Big Tech</span> veut jeter nos PC. 
             Nous, <span className="text-pink-400 font-semibold">irréductibles du lycée</span>, 
-            on installe <span className="text-green-400">🐧 Linux</span> et on résiste.
+            on installe <span className="text-green-400 inline-flex items-center gap-1"><Terminal className="w-4 h-4" /> Linux</span> et on résiste.
             <br className="hidden sm:block" />
-            <span className="font-bold text-white">Rejoins la démarche NIRD. ✊</span>
+            <span className="font-bold text-white inline-flex items-center gap-1">Rejoins la démarche NIRD. <Shield className="w-4 h-4 text-yellow-400" /></span>
           </p>
         </AnimateEnter>
 
@@ -41,11 +46,11 @@ export function HeroContent() {
           duration={2}
         >
           <NirdButton 
-            href="#comprendre" 
+            onClick={() => setIsJoinModalOpen(true)}
             variant="primary"
             className="h-12 sm:h-14 text-sm sm:text-base"
           >
-            ⚔️ Rejoindre la Résistance
+            <Swords className="w-4 h-4" /> Rejoindre la Résistance
           </NirdButton>
           
           <NirdButton 
@@ -53,17 +58,20 @@ export function HeroContent() {
             variant="outline"
             className="h-12 sm:h-14 text-sm sm:text-base"
           >
-            🎮 Libérez votre école !
+            <Gamepad2 className="w-4 h-4" /> Libérez votre école !
           </NirdButton>
         </AnimateEnter>
       </div>
 
       <AnimateEnter delay={0.9} duration={2} className="space-y-4">
-        <p className="text-sm text-gray-500 uppercase tracking-widest">Nos armes libres 🛡️</p>
+        <p className="text-sm text-gray-500 uppercase tracking-widest inline-flex items-center gap-2">Nos armes libres <Shield className="w-4 h-4" /></p>
         <Techs />
       </AnimateEnter>
 
       <GridBackground />
+
+      {/* Modal Rejoindre la Résistance */}
+      <JoinModal isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
     </div>
   );
 }

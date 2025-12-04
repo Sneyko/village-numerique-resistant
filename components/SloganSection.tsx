@@ -1,6 +1,7 @@
 import { AnimateEnter } from "../AnimateEnter";
 import { GridBackground } from "../GridBackground";
 import { NirdButton } from "./NirdButton";
+import { Rocket, ArrowUp, Unlock } from "lucide-react";
 
 export function SloganSection() {
   return (
@@ -27,14 +28,14 @@ export function SloganSection() {
             target="_blank"
             className="h-14 text-base"
           >
-            🚀 Site Officiel NIRD
+            <Rocket className="w-4 h-4" /> Site Officiel NIRD
           </NirdButton>
           <NirdButton
-            href="#comprendre"
+            href="#top"
             variant="glitch"
             className="h-14 text-base"
           >
-            ⬆️ Remonter
+            <ArrowUp className="w-4 h-4" /> Remonter
           </NirdButton>
         </AnimateEnter>
         <GridBackground />
@@ -53,7 +54,7 @@ export function SloganSection() {
             Nuit de l'Info 2025 — 4 & 5 Décembre
           </p>
           <div className="flex items-center justify-center gap-2 text-xs text-zinc-600">
-            <span>🔓</span>
+            <Unlock className="w-3 h-3" />
             <span>Projet sous licence libre</span>
             <a 
               href="https://github.com/Sneyko/village-numerique-resistant" 

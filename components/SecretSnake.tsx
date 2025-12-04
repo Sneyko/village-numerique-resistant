@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bug, X, RotateCcw, Trophy, Skull, Terminal } from "lucide-react";
+import { Bug, X, RotateCcw, Trophy, Skull, Terminal, Cable } from "lucide-react";
 
 // ============================================================
 // CONFIGURATION DU JEU
@@ -329,9 +329,9 @@ export default function SecretSnake() {
           <motion.h1
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-mono"
+            className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-mono inline-flex items-center gap-2"
           >
-            🐍 LE CÂBLE LIBRE 🐍
+            <Cable className="w-6 h-6 text-emerald-400" /> LE CÂBLE LIBRE <Cable className="w-6 h-6 text-emerald-400" />
           </motion.h1>
           <p className="text-center text-zinc-500 text-xs mt-1">
             Nettoie le système des bugs propriétaires

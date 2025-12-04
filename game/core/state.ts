@@ -443,10 +443,10 @@ export function generateNIRDPlan(state: GameState): string {
   }
 
   const zoneLabels: Record<string, string> = {
-    infra: "🖥️ Infrastructure",
-    pedago: "📚 Pédagogie",
-    vie: "🎒 Vie scolaire",
-    gouv: "🏛️ Gouvernance",
+    infra: "Infrastructure",
+    pedago: "Pédagogie",
+    vie: "Vie scolaire",
+    gouv: "Gouvernance",
   };
 
   let plan = "# Mon Plan NIRD\n";

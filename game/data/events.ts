@@ -8,7 +8,7 @@ import { GameEvent } from "../types";
 export const GAME_EVENTS: GameEvent[] = [
   {
     id: "fin-support-windows",
-    title: "⚠️ Fin de support Windows 10",
+    title: "[ALERTE] Fin de support Windows 10",
     description:
       "Microsoft annonce la fin du support de Windows 10. Sans mises à jour de sécurité, les postes deviennent vulnérables. La collectivité propose de tout remplacer par du matériel neuf sous Windows 11...",
     choices: [
@@ -53,7 +53,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "phishing-eleves",
-    title: "🎣 Tentative de phishing sur les comptes élèves",
+    title: "[PHISHING] Tentative de phishing sur les comptes élèves",
     description:
       "Plusieurs élèves ont cliqué sur un faux lien et leurs identifiants ENT ont été compromis. Des messages frauduleux ont été envoyés depuis leurs comptes. Comment réagir ?",
     choices: [
@@ -94,7 +94,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "coupe-budgetaire",
-    title: "💸 Coupe budgétaire de la collectivité",
+    title: "[BUDGET] Coupe budgétaire de la collectivité",
     description:
       "La collectivité annonce une réduction de 20% du budget numérique pour l'année prochaine. Il faut faire des choix difficiles.",
     choices: [
@@ -137,7 +137,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "projet-eleves",
-    title: "💡 Des élèves proposent un projet NIRD",
+    title: "[IDÉE] Des élèves proposent un projet NIRD",
     description:
       "Un groupe d'élèves motivés vient vous voir avec un projet : créer une chaîne de tutos vidéo pour apprendre à utiliser les logiciels libres. Ils demandent du soutien.",
     choices: [
@@ -179,7 +179,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "appel-projets-collectivite",
-    title: "📢 Appel à projets de la collectivité",
+    title: "[ANNONCE] Appel à projets de la collectivité",
     description:
       "La région lance un appel à projets 'Numérique responsable dans les établissements scolaires'. Le dossier est complexe mais le financement est conséquent.",
     choices: [
@@ -220,7 +220,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "panne-serveur",
-    title: "🔥 Panne du serveur principal",
+    title: "[URGENCE] Panne du serveur principal",
     description:
       "Le serveur qui héberge l'ENT et les fichiers partagés tombe en panne. Le prestataire propose un remplacement coûteux ou une migration vers le cloud Microsoft.",
     choices: [
@@ -263,7 +263,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "donation-materiel",
-    title: "🎁 Donation de matériel d'entreprise",
+    title: "[DON] Donation de matériel d'entreprise",
     description:
       "Une entreprise locale propose de donner 30 ordinateurs 'obsolètes' (5 ans). Ils fonctionnent mais ne sont plus assez puissants pour Windows 11.",
     choices: [
@@ -304,7 +304,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "reseaux-sociaux-crise",
-    title: "📱 Crise sur les réseaux sociaux",
+    title: "[CRISE] Crise sur les réseaux sociaux",
     description:
       "Une vidéo tournée dans l'établissement fait le buzz sur TikTok. Des commentaires négatifs affluent. L'image de l'établissement est en jeu.",
     choices: [
@@ -344,7 +344,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "visite-inspection",
-    title: "🔍 Visite de l'inspection académique",
+    title: "[VISITE] Visite de l'inspection académique",
     description:
       "L'inspecteur·rice vient évaluer les pratiques numériques de l'établissement. C'est l'occasion de valoriser les actions NIRD... ou de les cacher.",
     choices: [
@@ -372,7 +372,7 @@ export const GAME_EVENTS: GameEvent[] = [
   },
   {
     id: "partenariat-association",
-    title: "🤝 Proposition d'une association locale",
+    title: "[PARTENARIAT] Proposition d'une association locale",
     description:
       "Une association de promotion du logiciel libre propose un partenariat : interventions gratuites en échange de visibilité.",
     choices: [

@@ -24,11 +24,11 @@ interface NirdButtonProps {
 function TextGlitch({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative overflow-hidden">
-      <span className="invisible">{children}</span>
-      <span className="absolute left-0 top-0 font-semibold transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+      <span className="invisible inline-flex items-center gap-2">{children}</span>
+      <span className="absolute left-0 top-0 font-semibold transition-transform duration-500 ease-in-out group-hover:-translate-y-full inline-flex items-center gap-2">
         {children}
       </span>
-      <span className="absolute left-0 top-0 translate-y-full font-semibold transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+      <span className="absolute left-0 top-0 translate-y-full font-semibold transition-transform duration-500 ease-in-out group-hover:translate-y-0 inline-flex items-center gap-2">
         {children}
       </span>
     </div>

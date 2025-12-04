@@ -17,6 +17,18 @@ import {
   Code2,
   Cloud,
   Mic,
+  Monitor,
+  Chrome,
+  Paperclip,
+  PlayCircle,
+  PaintBucket,
+  MailOpen,
+  Youtube,
+  MessageSquare,
+  Laptop,
+  CloudCog,
+  Music,
+  Lightbulb,
 } from "lucide-react";
 
 // ============================================================
@@ -28,7 +40,7 @@ interface Tool {
   name: string;
   icon: React.ReactNode;
   enemy: string;
-  enemyIcon: string;
+  enemyIcon: React.ReactNode;
   classe: string;
   power: string;
   powerDescription: string;
@@ -47,7 +59,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Linux Mint",
     icon: <Terminal className="w-8 h-8" />,
     enemy: "Microsoft Windows",
-    enemyIcon: "🪟",
+    enemyIcon: <Monitor className="w-5 h-5" />,
     classe: "Système d'Exploitation Libre",
     power: "Immunité à l'Obsolescence",
     powerDescription: "Fait tourner des PC de 2012",
@@ -61,7 +73,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Mozilla Firefox",
     icon: <Flame className="w-8 h-8" />,
     enemy: "Google Chrome",
-    enemyIcon: "🔵",
+    enemyIcon: <Chrome className="w-5 h-5" />,
     classe: "Navigateur Furtif",
     power: "Bloqueur de Mouchards",
     powerDescription: "Protection anti-tracking intégrée",
@@ -75,7 +87,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "LibreOffice",
     icon: <FileText className="w-8 h-8" />,
     enemy: "Microsoft Office 365",
-    enemyIcon: "📎",
+    enemyIcon: <Paperclip className="w-5 h-5" />,
     classe: "Suite Bureautique Indépendante",
     power: "Format Ouvert",
     powerDescription: "Pas d'abonnement mensuel",
@@ -89,7 +101,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "VLC Media Player",
     icon: <Play className="w-8 h-8" />,
     enemy: "Windows Media Player",
-    enemyIcon: "▶️",
+    enemyIcon: <PlayCircle className="w-5 h-5" />,
     classe: "Lecteur Universel",
     power: "Lecture Absolue",
     powerDescription: "Lit tous les formats, même cassés",
@@ -103,7 +115,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "GIMP",
     icon: <Palette className="w-8 h-8" />,
     enemy: "Adobe Photoshop",
-    enemyIcon: "🎨",
+    enemyIcon: <PaintBucket className="w-5 h-5" />,
     classe: "Manipulateur de Pixels",
     power: "Licence Perpétuelle",
     powerDescription: "Coût : 0€ à vie vs 24€/mois",
@@ -117,7 +129,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Thunderbird",
     icon: <Mail className="w-8 h-8" />,
     enemy: "Microsoft Outlook",
-    enemyIcon: "📧",
+    enemyIcon: <MailOpen className="w-5 h-5" />,
     classe: "Gardien des Correspondances",
     power: "Coffre-fort Local",
     powerDescription: "Tes mails sont chez toi, pas scannés pour de la pub",
@@ -131,7 +143,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "PeerTube",
     icon: <Tv className="w-8 h-8" />,
     enemy: "YouTube (Google)",
-    enemyIcon: "📺",
+    enemyIcon: <Youtube className="w-5 h-5" />,
     classe: "Architecte Décentralisé",
     power: "Zéro Algorithme Toxique",
     powerDescription: "Tu regardes ce que TU veux, pas ce qui t'énerve",
@@ -145,7 +157,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Signal",
     icon: <MessageCircle className="w-8 h-8" />,
     enemy: "WhatsApp (Meta)",
-    enemyIcon: "💬",
+    enemyIcon: <MessageSquare className="w-5 h-5" />,
     classe: "Agent Secret",
     power: "Chiffrement Absolu",
     powerDescription: "Même eux ne savent pas ce que tu dis",
@@ -159,7 +171,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Zorin OS",
     icon: <Sparkles className="w-8 h-8" />,
     enemy: "Windows 11",
-    enemyIcon: "🪟",
+    enemyIcon: <Monitor className="w-5 h-5" />,
     classe: "Caméléon",
     power: "Interface Familière",
     powerDescription: "Ressemble à Windows, mais en mieux",
@@ -173,7 +185,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "VSCodium",
     icon: <Code2 className="w-8 h-8" />,
     enemy: "VS Code (Microsoft)",
-    enemyIcon: "💻",
+    enemyIcon: <Laptop className="w-5 h-5" />,
     classe: "Forge Purifiée",
     power: "Zéro Télémétrie",
     powerDescription: "Même IDE, sans les espions",
@@ -187,7 +199,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Nextcloud",
     icon: <Cloud className="w-8 h-8" />,
     enemy: "Google Drive / OneDrive",
-    enemyIcon: "☁️",
+    enemyIcon: <CloudCog className="w-5 h-5" />,
     classe: "Nuage Souverain",
     power: "Données à la Maison",
     powerDescription: "Tes fichiers restent chez toi",
@@ -201,7 +213,7 @@ const ARSENAL_TOOLS: Tool[] = [
     name: "Audacity",
     icon: <Mic className="w-8 h-8" />,
     enemy: "Adobe Audition",
-    enemyIcon: "🎵",
+    enemyIcon: <Music className="w-5 h-5" />,
     classe: "Maître des Ondes",
     power: "Édition Sonore Libre",
     powerDescription: "Studio pro, 0€",
@@ -552,9 +564,9 @@ export default function ArsenalSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-zinc-600 text-sm mt-12"
+          className="text-center text-zinc-600 text-sm mt-12 inline-flex items-center gap-2 justify-center w-full"
         >
-          💡 Tous ces outils sont 100% gratuits, open-source et respectueux de ta vie privée.
+          <Lightbulb className="w-4 h-4" /> Tous ces outils sont 100% gratuits, open-source et respectueux de ta vie privée.
         </motion.p>
       </div>
 

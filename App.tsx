@@ -7,6 +7,7 @@ import { SloganSection } from './components/SloganSection';
 import ChatBruti from './components/ChatBruti';
 import SecretSnake from './components/SecretSnake';
 import GameRoot from './components/game/GameRoot';
+import { Gamepad2, Castle } from 'lucide-react';
 
 export default function App() {
   const [showGame, setShowGame] = useState(false);
@@ -22,10 +23,10 @@ export default function App() {
       <ArsenalSection />
 
       {/* Section Jeu NIRD */}
-      <section id="simulateur" className="py-20 px-4 bg-gradient-to-b from-black via-zinc-900/50 to-black">
+      <section id="simulateur" className="py-20 px-4 bg-gradient-to-b from-black via-zinc-900/50 to-black scroll-mt-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            🎮 Simulateur NIRD
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 flex items-center justify-center gap-3">
+            <Gamepad2 className="w-10 h-10" /> Simulateur NIRD
           </h2>
           <p className="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto">
             Transformez un établissement captif des Big Tech en un véritable 
@@ -38,9 +39,9 @@ export default function App() {
                        hover:from-emerald-500 hover:to-teal-500 
                        text-white font-bold text-lg transition-all duration-300
                        shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40
-                       transform hover:scale-105"
+                       transform hover:scale-105 inline-flex items-center gap-2"
           >
-            🏰 Lancer le jeu
+            <Castle className="w-5 h-5" /> Lancer le jeu
           </button>
           <p className="text-zinc-600 text-sm mt-4">
             Inclusif • Responsable • Durable
@@ -48,7 +49,7 @@ export default function App() {
         </div>
       </section>
       
-      <div className="container mx-auto px-4 py-10 space-y-32">
+      <div className="container mx-auto px-4 pt-10 space-y-32">
         <FeedbacksSection />
         <SloganSection />
       </div>

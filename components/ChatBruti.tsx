@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, User, AlertTriangle, Wifi } from "lucide-react";
+import { X, Send, Bot, User, AlertTriangle, Wifi, Flame, Angry, Eye, Skull, Circle } from "lucide-react";
 
 // ============================================================
 // CERVEAU MALÉFIQUE - Les réponses de Goli-Chat
@@ -22,7 +22,7 @@ const EVIL_ANSWERS = [
   "As-tu lu les 840 pages des CGU ? Non ? Alors tais-toi et clique sur 'Accepter'.",
   "Je vois que tu cherches des alternatives. C'est mignon. Vraiment.",
   "Firefox ? LOL. Reviens quand tu auras Chrome comme tout le monde normal.",
-  "Signal ? Pourquoi cacher tes messages si tu n'as rien à cacher ? 🤔",
+  "Signal ? Pourquoi cacher tes messages si tu n'as rien à cacher ? Hmm...",
   "GIMP c'est bien, si tu aimes les interfaces de 1998.",
   "Je dois redémarrer pour installer 47 mises à jour. Reviens dans 3h.",
   "Ton historique de navigation est très intéressant. Continue, je prends des notes.",
@@ -95,10 +95,10 @@ const WELCOME_MESSAGES = [
 
 // Messages spéciaux pour l'easter egg
 const RAGE_MESSAGES = [
-  "ARRÊTE DE CLIQUER SUR MA TÊTE !! 😡",
+  "ARRÊTE DE CLIQUER SUR MA TÊTE !! GRRR",
   "TU CROIS QUE C'EST DRÔLE ?! Mon processeur CHAUFFE !!",
   "ENCORE ?! Je vais PLANTER et ce sera TA FAUTE !",
-  "🔥🔥🔥 SURCHAUFFE DÉTECTÉE 🔥🔥🔥 ...par ta bêtise.",
+  "SURCHAUFFE DÉTECTÉE ...par ta bêtise.",
   "OK OK J'AI COMPRIS !! Tu veux me casser ?!",
   "MAIS LÂCHE MON AVATAR ESPÈCE DE... de... *censure du firewall*",
   "Je vais appeler la Big Tech Police si tu continues !!",
@@ -250,7 +250,7 @@ export default function ChatBruti() {
         // Message après explosion
         const afterExplosion: Message = {
           id: Date.now() + 1,
-          text: "💀 *reboot système* ...Tu es content maintenant ? J'ai dû redémarrer. Mes 847 processus de surveillance sont perdus.",
+          text: "*reboot système* ...Tu es content maintenant ? J'ai dû redémarrer. Mes 847 processus de surveillance sont perdus.",
           sender: "bot",
         };
         setMessages((prev) => [...prev, afterExplosion]);
@@ -442,7 +442,7 @@ export default function ChatBruti() {
                   <div>
                     <h3 className="text-white font-bold text-sm flex items-center gap-2">
                       Goli-Chat 
-                      <span className="text-[10px] font-normal text-zinc-400 italic">← clique ma tête 👀</span>
+                      <span className="text-[10px] font-normal text-zinc-400 italic">← clique ma tête</span>
                     </h3>
                     <div className="flex items-center gap-1.5 text-[10px] text-zinc-400">
                       <Wifi className="w-3 h-3 text-orange-500 animate-pulse" />
@@ -558,8 +558,8 @@ export default function ChatBruti() {
               </div>
               
               {/* Footer evil text */}
-              <p className="mt-2 text-[10px] text-zinc-600 text-center">
-                🟠 Propulsé par SurveillanceGPT™ • Vos données sont notre passion
+              <p className="mt-2 text-[10px] text-zinc-600 text-center inline-flex items-center gap-1 justify-center w-full">
+                <Circle className="w-2 h-2 fill-orange-500 text-orange-500" /> Propulsé par SurveillanceGPT™ • Vos données sont notre passion
               </p>
             </div>
           </motion.div>

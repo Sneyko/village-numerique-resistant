@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "lucide-react";
 
 export function GalleryButton() {
   return (
@@ -15,7 +16,7 @@ export function GalleryButton() {
         hover:text-white
       "
     >
-      <span>🖼️</span>
+      <Image className="w-5 h-5" />
       <span>Voir la galerie</span>
     </a>
   );

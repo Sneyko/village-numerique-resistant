@@ -12,7 +12,7 @@ interface EndingTexts {
 
 const ENDINGS: Record<EndingCategory, EndingTexts> = {
   captif: {
-    title: "🔒 Établissement Captif",
+    title: "Établissement Captif",
     descriptions: {
       eleve:
         "Ton établissement reste dépendant des Big Tech. Les abonnements pèsent sur le budget, les données des élèves circulent sur des serveurs lointains, et le matériel est renouvelé trop souvent. Mais ton engagement a semé des graines. La prochaine génération pourra peut-être changer les choses !",
@@ -27,7 +27,7 @@ const ENDINGS: Record<EndingCategory, EndingTexts> = {
     },
   },
   transition: {
-    title: "🔄 Établissement en Transition",
+    title: "Établissement en Transition",
     descriptions: {
       eleve:
         "Ton établissement est sur la bonne voie ! Certains postes tournent sous Linux, des logiciels libres sont utilisés au quotidien, et les élèves sont de plus en plus sensibilisés. Continue de porter ces valeurs, tu es un·e acteur·rice du changement !",
@@ -42,7 +42,7 @@ const ENDINGS: Record<EndingCategory, EndingTexts> = {
     },
   },
   resistant: {
-    title: "🏆 Village Numérique Résistant",
+    title: "Village Numérique Résistant",
     descriptions: {
       eleve:
         "Bravo ! Ton établissement est devenu un véritable Village Numérique Résistant ! Linux sur les postes, logiciels libres au quotidien, réemploi du matériel, élèves ambassadeurs... Tu as prouvé que les jeunes peuvent transformer le système de l'intérieur !",
@@ -113,42 +113,45 @@ export const PROFILE_TEXTS: Record<PlayerProfile, {
  */
 export const TUTORIAL_SLIDES = [
   {
-    title: "Bienvenue dans le Village Numérique Résistant !",
-    content: `Tu incarnes une équipe qui veut transformer un établissement scolaire très dépendant des Big Tech en un **Village Numérique Résistant**.
+    title: "Bienvenue, futur·e résistant·e !",
+    content: `Tu prends la tête d'une équipe déterminée à libérer un établissement scolaire de l'emprise des **Big Tech** (Microsoft, Google, Apple...).
 
-L'objectif ? Prouver qu'un autre numérique est possible : **Inclusif, Responsable et Durable** (NIRD).`,
-    icon: "🏰",
+Ton objectif : transformer cet établissement en un véritable **Village Numérique Résistant**, basé sur les principes **NIRD** : Numérique Inclusif, Responsable et Durable.
+
+Prêt·e à relever le défi ?`,
+    icon: "castle",
   },
   {
-    title: "Les 3 piliers du NIRD",
-    content: `**Inclusion** 👥 : Un numérique accessible à tous, qui réduit les inégalités.
+    title: "Les 3 piliers NIRD",
+    content: `**Inclusion** : Rendre le numérique accessible à tous. Pas de fracture numérique, des outils gratuits et simples.
 
-**Responsabilité** 🛡️ : Des logiciels libres, des données protégées, une éthique respectée.
+**Responsabilité** : Protéger les données, utiliser des logiciels libres, respecter la vie privée. Fini les GAFAM qui espionnent !
 
-**Durabilité** 🌱 : Sobriété, réemploi, réparation. Contre l'obsolescence programmée.`,
-    icon: "🎯",
+**Durabilité** : Réparer plutôt que jeter, faire durer le matériel, installer Linux sur les vieux PC. La planète te remercie.`,
+    icon: "target",
   },
   {
-    title: "Ta mission",
-    content: `Tu as **4 années scolaires** pour transformer l'établissement.
+    title: "Comment jouer ?",
+    content: `Le jeu se déroule sur **4 années scolaires**. Chaque année :
 
-Chaque année :
-1. **Choisis une priorité** (Inclusion, Responsabilité ou Durabilité)
-2. **Joue 3 cartes d'action** dans les différentes zones
-3. **Réagis à un événement** imprévu
+1. **Choisis ta priorité** : Inclusion, Responsabilité ou Durabilité (bonus sur les actions liées)
 
-Attention à ton **budget** et à l'**énergie** de ton équipe !`,
-    icon: "🎮",
+2. **Joue 3 cartes d'action** : Installe Linux, forme les profs, crée un atelier réparation...
+
+3. **Gère un événement aléatoire** : Panne, don de matériel, visite d'inspection... Fais les bons choix !`,
+    icon: "gamepad",
   },
   {
-    title: "Les indicateurs",
-    content: `Tu dois gérer 6 jauges :
-- **Inclusion, Responsabilité, Durabilité** → à faire monter !
-- **Dépendance Big Tech** → à faire baisser !
-- **Budget** → ne tombe pas à 0 !
-- **Énergie** → ton équipe a besoin de souffler !
+    title: "Tes ressources",
+    content: `Tu dois surveiller **6 jauges** :
 
-À la fin, ton score déterminera si tu as créé un vrai Village Résistant... ou si les Big Tech ont gagné.`,
-    icon: "📊",
+✅ **Inclusion, Responsabilité, Durabilité** → Fais-les monter au maximum !
+
+❌ **Dépendance Big Tech** → Réduis-la au minimum !
+
+⚠️ **Budget** et **Énergie** → Si l'un tombe à 0, c'est **Game Over** !
+
+Bonne chance, la Résistance compte sur toi !`,
+    icon: "chart",
   },
 ];

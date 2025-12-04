@@ -1,5 +1,6 @@
 import { AnimateEnter } from "../AnimateEnter";
 import { FeedbacksCard } from "./FeedbacksCard";
+import { Megaphone } from "lucide-react";
 
 // Inline components for visual effects
 const Line = () => <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-60" />;
@@ -16,8 +17,8 @@ export function FeedbacksSection() {
           delay={0.2}
         >
           <div className="text-center space-y-3">
-            <p className="text-green-400 font-semibold uppercase tracking-widest text-sm">
-              ✊ Échos du Front
+            <p className="text-green-400 font-semibold uppercase tracking-widest text-sm inline-flex items-center gap-2">
+              <Megaphone className="w-4 h-4" /> Échos du Front
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white">
               Ils ont rejoint{" "}

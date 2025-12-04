@@ -1,9 +1,17 @@
 // Tutoriel du jeu
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft, Castle, Target, Gamepad2, BarChart3 } from "lucide-react";
 import { PlayerProfile } from "../../game/types";
 import { TUTORIAL_SLIDES, PROFILE_TEXTS } from "../../game/data/texts";
+
+// Mapping des icônes du tutoriel
+const ICON_MAP: Record<string, React.ReactNode> = {
+  castle: <Castle className="w-16 h-16 text-emerald-400" />,
+  target: <Target className="w-16 h-16 text-yellow-400" />,
+  gamepad: <Gamepad2 className="w-16 h-16 text-purple-400" />,
+  chart: <BarChart3 className="w-16 h-16 text-cyan-400" />,
+};
 
 // Fonction pour parser le markdown simple (gras uniquement)
 function parseMarkdown(text: string): React.ReactNode[] {
@@ -75,7 +83,7 @@ export function Tutorial({ profile, onStart }: TutorialProps) {
             transition={{ duration: 0.2 }}
             className="text-center"
           >
-            <div className="text-6xl mb-6">{slide.icon}</div>
+            <div className="flex justify-center mb-6">{ICON_MAP[slide.icon] || slide.icon}</div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               {slide.title}
             </h2>

@@ -1,11 +1,12 @@
 import React from "react";
+import { Terminal, FileText, Flame, Cloud, Palette } from "lucide-react";
 
 const techs = [
-  { name: "Linux", icon: "🐧", color: "hover:border-yellow-500/50 hover:text-yellow-300" },
-  { name: "LibreOffice", icon: "📄", color: "hover:border-green-500/50 hover:text-green-300" },
-  { name: "Firefox", icon: "🦊", color: "hover:border-orange-500/50 hover:text-orange-300" },
-  { name: "Nextcloud", icon: "☁️", color: "hover:border-blue-500/50 hover:text-blue-300" },
-  { name: "GIMP", icon: "🎨", color: "hover:border-gray-400/50 hover:text-gray-200" },
+  { name: "Linux", icon: <Terminal className="w-4 h-4" />, color: "hover:border-yellow-500/50 hover:text-yellow-300" },
+  { name: "LibreOffice", icon: <FileText className="w-4 h-4" />, color: "hover:border-green-500/50 hover:text-green-300" },
+  { name: "Firefox", icon: <Flame className="w-4 h-4" />, color: "hover:border-orange-500/50 hover:text-orange-300" },
+  { name: "Nextcloud", icon: <Cloud className="w-4 h-4" />, color: "hover:border-blue-500/50 hover:text-blue-300" },
+  { name: "GIMP", icon: <Palette className="w-4 h-4" />, color: "hover:border-gray-400/50 hover:text-gray-200" },
 ];
 
 export function Techs() {
