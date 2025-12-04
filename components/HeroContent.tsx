@@ -12,9 +12,9 @@ export function HeroContent() {
         <div className="mb-5 sm:mb-8 space-y-4 sm:space-y-6">
           <AnimateEnter delay={0.05} duration={2} className="w-fit mx-auto">
             <img 
-              src="/img/logo.png" 
-              alt="Logo NIRD - Numérique Inclusif Responsable Durable" 
-              className="h-10 sm:h-12 md:h-14 w-auto mx-auto drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all duration-300"
+              src="/img/logo-team.png" 
+              alt="Village Numérique Résistant" 
+              className="h-14 sm:h-16 md:h-20 w-auto mx-auto drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all duration-300"
             />
           </AnimateEnter>
           <AnimateEnter delay={0.15} duration={2} className="w-fit mx-auto">

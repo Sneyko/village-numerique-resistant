@@ -64,6 +64,20 @@ export function SloganSection() {
               GitHub
             </a>
           </div>
+          <div className="mt-6 pt-4 border-t border-zinc-800">
+            <a 
+              href="https://nird.forge.apps.education.fr/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block opacity-60 hover:opacity-100 transition-opacity"
+            >
+              <img 
+                src="/img/logo.png" 
+                alt="NIRD - Numérique Inclusif Responsable Durable" 
+                className="h-10 w-auto mx-auto"
+              />
+            </a>
+          </div>
         </div>
       </footer>
     </section>

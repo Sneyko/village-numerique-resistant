@@ -9,6 +9,15 @@
 **Beaucoup trop goatesque** 🐐  
 IUT A — Toulouse
 
+### Membres
+
+- **Kilian GUERIN**
+- **Tom TESTU**
+- **Timéo GOSGNACK**
+- **Luka CHABOT**
+- **Soraya IYANGUI**
+- **Kohaina ATEO**
+
 ---
 
 ## 🎯 Le Projet
