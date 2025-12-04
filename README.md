@@ -1,5 +1,7 @@
 # 🦋 Le Village Numérique Résistant
 
+![Beaucoup trop goatesque](./img/readme-background.png)
+
 > **Projet pour la Nuit de l'Info 2025** — 4 & 5 Décembre 2025
 
 ## 🏆 Équipe

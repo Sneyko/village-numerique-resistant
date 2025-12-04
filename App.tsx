@@ -22,7 +22,7 @@ export default function App() {
       <ArsenalSection />
 
       {/* Section Jeu NIRD */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black via-zinc-900/50 to-black">
+      <section id="simulateur" className="py-20 px-4 bg-gradient-to-b from-black via-zinc-900/50 to-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             🎮 Simulateur NIRD

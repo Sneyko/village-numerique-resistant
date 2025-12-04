@@ -55,11 +55,11 @@ export function HeroContent() {
           </NirdButton>
           
           <NirdButton 
-            href="#outils" 
+            href="#simulateur" 
             variant="outline"
             className="h-12 sm:h-14 text-sm sm:text-base"
           >
-            🔍 Scanner mon établissement
+            🎮 Libérez votre école !
           </NirdButton>
         </AnimateEnter>
       </div>
