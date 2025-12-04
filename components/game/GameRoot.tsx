@@ -133,6 +133,11 @@ export default function GameRoot({ onClose }: GameRootProps) {
           <div className="max-w-6xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
+                <img 
+                  src="/img/logo-team.png" 
+                  alt="Village Numérique Résistant" 
+                  className="h-8 w-auto"
+                />
                 <span className="text-emerald-400 font-bold">
                   Année {state.year}/4
                 </span>
@@ -167,7 +172,7 @@ export default function GameRoot({ onClose }: GameRootProps) {
       {/* Contenu principal */}
       <div className={`h-full overflow-y-auto ${
         state.phase !== "profile" && state.phase !== "tutorial" && state.phase !== "ended"
-          ? "pt-28"
+          ? "pt-28 pb-16"
           : ""
       } p-6`}>
         <AnimatePresence mode="wait">
@@ -254,6 +259,20 @@ export default function GameRoot({ onClose }: GameRootProps) {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Footer avec logo NIRD */}
+      {state.phase !== "profile" && state.phase !== "tutorial" && state.phase !== "ended" && (
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-zinc-900/80 backdrop-blur-sm border-t border-zinc-800">
+          <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-center gap-3">
+            <span className="text-xs text-zinc-500">Propulsé par</span>
+            <img 
+              src="/img/logo.png" 
+              alt="NIRD - Numérique Inclusif Responsable Durable" 
+              className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
