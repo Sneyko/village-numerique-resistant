@@ -157,7 +157,7 @@ export function getAvailableCards(state: GameState): ActionCard[] {
 }
 
 /**
- * Sélectionne une carte pour cette année
+ * Sélectionne une carte pour cette année (sans appliquer les effets)
  */
 export function selectCard(state: GameState, cardId: string): GameState {
   if (!canSelectMoreCards(state)) {
@@ -169,20 +169,62 @@ export function selectCard(state: GameState, cardId: string): GameState {
     return state;
   }
 
-  // Si la carte a un quiz, on passe en phase quiz
-  if (card.quiz) {
-    return {
-      ...state,
-      currentQuiz: {
-        card,
-        quiz: card.quiz,
-      },
-      phase: "quiz",
-    };
+  // Ajoute la carte à la sélection (les effets seront appliqués à la validation)
+  return {
+    ...state,
+    selectedCardsThisYear: [...state.selectedCardsThisYear, card],
+  };
+}
+
+/**
+ * Désélectionne une carte
+ */
+export function deselectCard(state: GameState, cardId: string): GameState {
+  return {
+    ...state,
+    selectedCardsThisYear: state.selectedCardsThisYear.filter(c => c.id !== cardId),
+  };
+}
+
+/**
+ * Valide les cartes sélectionnées et applique leurs effets
+ */
+export function validateYearCards(state: GameState): GameState {
+  if (state.selectedCardsThisYear.length === 0) {
+    return state;
   }
 
-  // Sinon on applique directement les effets
-  return applyCardEffects(state, card);
+  let newState = { ...state };
+  let totalEffects: Partial<Record<IndicatorKey, number>> = {};
+
+  // Applique les effets de toutes les cartes sélectionnées
+  for (const card of state.selectedCardsThisYear) {
+    totalEffects = mergeDeltas(totalEffects, card.baseEffects);
+  }
+
+  // Applique les effets aux indicateurs
+  const newIndicators = applyDeltas(
+    state.indicators,
+    totalEffects,
+    state.priorityAxis
+  );
+
+  // Met à jour l'historique
+  const historyEntries = state.selectedCardsThisYear.map(card => ({
+    year: state.year,
+    description: card.title,
+    delta: card.baseEffects,
+  }));
+
+  return {
+    ...newState,
+    indicators: newIndicators,
+    playedCards: [...state.playedCards, ...state.selectedCardsThisYear],
+    yearDelta: totalEffects,
+    history: [...state.history, ...historyEntries],
+    phase: "event",
+    currentEvent: getRandomEvent(),
+  };
 }
 
 /**

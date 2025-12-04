@@ -22,6 +22,8 @@ import {
   startGame,
   setPriorityAxis,
   selectCard,
+  deselectCard,
+  validateYearCards,
   getAvailableCards,
   answerQuiz,
   answerEvent,
@@ -70,10 +72,7 @@ export default function GameRoot({ onClose }: GameRootProps) {
     
     if (isAlreadySelected) {
       // Retirer la carte
-      setState(s => ({
-        ...s,
-        selectedCardsThisYear: s.selectedCardsThisYear.filter(c => c.id !== card.id)
-      }));
+      setState(s => deselectCard(s, card.id));
     } else {
       // Ajouter la carte
       setState(s => selectCard(s, card.id));
@@ -98,15 +97,8 @@ export default function GameRoot({ onClose }: GameRootProps) {
   }, []);
 
   const handleValidateYear = useCallback(() => {
-    // Appliquer les effets des cartes et passer à l'événement
-    setState(s => {
-      // Les cartes sont déjà sélectionnées, on passe à l'événement
-      return {
-        ...s,
-        phase: "event" as const,
-        currentEvent: s.currentEvent
-      };
-    });
+    // Valider les cartes et passer à l'événement
+    setState(s => validateYearCards(s));
   }, []);
 
   const handleEventChoice = useCallback((choice: EventChoice) => {
