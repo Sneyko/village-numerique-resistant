@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Le Village Numérique Résistant - Démarche NIRD : Numérique Inclusif, Responsable et Durable",
   "author": "beaucoup-trop-goatesque",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sneyko/village-numerique-resistant"
