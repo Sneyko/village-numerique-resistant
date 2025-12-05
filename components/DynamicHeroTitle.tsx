@@ -1,20 +1,12 @@
-// DynamicHeroTitle.tsx - Animation narrative "David vs Goliath"
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ============================================================
-// COMPOSANT PRINCIPAL
-// ============================================================
-
 export function DynamicHeroTitle() {
   const [phase, setPhase] = useState(0);
-  // Phase 0: Terminal typing
-  // Phase 1: Title reveal
-  // Phase 2: Subtitle fade
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setPhase(1), 2500); // Après le typing
-    const timer2 = setTimeout(() => setPhase(2), 3500); // Après le title
+    const timer1 = setTimeout(() => setPhase(1), 2500);
+    const timer2 = setTimeout(() => setPhase(2), 3500);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -23,25 +15,16 @@ export function DynamicHeroTitle() {
 
   return (
     <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
-      {/* Ligne 1 - Terminal */}
       <TerminalLine show={phase >= 0} />
-
-      {/* Ligne 2 - David vs Goliath */}
       <AnimatePresence>
         {phase >= 1 && <MainTitle />}
       </AnimatePresence>
-
-      {/* Ligne 3 - Sous-titre */}
       <AnimatePresence>
         {phase >= 2 && <Subtitle />}
       </AnimatePresence>
     </div>
   );
 }
-
-// ============================================================
-// LIGNE 1 : TERMINAL TYPEWRITER
-// ============================================================
 
 function TerminalLine({ show }: { show: boolean }) {
   const text = "> sudo join_resistance";
@@ -61,7 +44,6 @@ function TerminalLine({ show }: { show: boolean }) {
       }
     }, 80);
 
-    // Curseur clignotant
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 530);
@@ -91,10 +73,6 @@ function TerminalLine({ show }: { show: boolean }) {
   );
 }
 
-// ============================================================
-// LIGNE 2 : DAVID vs GOLIATH
-// ============================================================
-
 function MainTitle() {
   return (
     <motion.div
@@ -109,7 +87,6 @@ function MainTitle() {
       }}
       className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6"
     >
-      {/* DAVID - Stable et brillant */}
       <motion.span
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -121,7 +98,6 @@ function MainTitle() {
         DAVID
       </motion.span>
 
-      {/* vs */}
       <motion.span
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -131,28 +107,20 @@ function MainTitle() {
         vs
       </motion.span>
 
-      {/* GOLIATH - Glitch effect */}
       <GlitchText text="GOLIATH" />
     </motion.div>
   );
 }
-
-// ============================================================
-// EFFET GLITCH POUR GOLIATH
-// ============================================================
 
 function GlitchText({ text }: { text: string }) {
   const [glitchOffset, setGlitchOffset] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
-      // Tremblement aléatoire subtil
       setGlitchOffset({
         x: (Math.random() - 0.5) * 4,
         y: (Math.random() - 0.5) * 2,
       });
-
-      // Reset rapide
       setTimeout(() => setGlitchOffset({ x: 0, y: 0 }), 50);
     }, 100 + Math.random() * 200);
 
@@ -169,7 +137,7 @@ function GlitchText({ text }: { text: string }) {
         transform: `translate(${glitchOffset.x}px, ${glitchOffset.y}px)`,
       }}
     >
-      {/* Layer Rouge (décalé gauche) */}
+      {/* Rouge */}
       <span
         className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-red-500 opacity-70"
         style={{
@@ -181,7 +149,7 @@ function GlitchText({ text }: { text: string }) {
         {text}
       </span>
 
-      {/* Layer Bleu (décalé droite) */}
+      {/* Bleu */}
       <span
         className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-blue-500 opacity-70"
         style={{
@@ -193,7 +161,6 @@ function GlitchText({ text }: { text: string }) {
         {text}
       </span>
 
-      {/* Layer Principal (blanc/gris) */}
       <span
         className="relative text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black 
                    text-transparent bg-clip-text bg-gradient-to-b from-zinc-300 to-zinc-500
@@ -202,7 +169,7 @@ function GlitchText({ text }: { text: string }) {
         {text}
       </span>
 
-      {/* Scanlines effect */}
+      {/* Scanlines */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
@@ -212,7 +179,6 @@ function GlitchText({ text }: { text: string }) {
         aria-hidden="true"
       />
 
-      {/* Glitch flash occasionnel */}
       <motion.div
         className="absolute inset-0 bg-white pointer-events-none"
         initial={{ opacity: 0 }}
@@ -230,10 +196,6 @@ function GlitchText({ text }: { text: string }) {
   );
 }
 
-// ============================================================
-// LIGNE 3 : SOUS-TITRE
-// ============================================================
-
 function Subtitle() {
   return (
     <motion.p
@@ -246,7 +208,6 @@ function Subtitle() {
     >
       L'École ne se laissera pas{" "}
       <span className="relative inline-block group cursor-pointer">
-        {/* Texte principal avec effet glow */}
         <motion.span
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -260,7 +221,6 @@ function Subtitle() {
           résister
         </motion.span>
         
-        {/* Underline animé */}
         <motion.span
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
@@ -271,7 +231,6 @@ function Subtitle() {
                      transition-all duration-300"
         />
         
-        {/* Particules au survol */}
         <span className="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <span className="absolute top-0 left-1/4 w-1 h-1 bg-emerald-400 rounded-full animate-ping" />
           <span className="absolute bottom-0 right-1/4 w-1 h-1 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: "0.2s" }} />
